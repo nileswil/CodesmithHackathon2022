@@ -28,20 +28,59 @@ fetch(requestForAllPokemon).then((data) => data.json())
   })
   .catch(error => console.log('Error'))
 
+//DOM MANIP
+
+
+//*******GAME CREATION
+//create game container to insert sub items later.
+const gameContainer = document.createElement('div');
+gameContainer.className = 'game-container';
+gameContainer.setAttribute('id', 'game-Container');
+
+//create image container
+const imgContainer = document.createElement('div');
+imgContainer.className = 'img-container';
+imgContainer.setAttribute('id', 'img-Container');
+
+//create a pokemon
+const pokemonInstance = document.createElement('img');
+pokemonInstance.className = 'pokemon-instance';
+pokemonInstance.setAttribute('id', 'pokemon-Instance');
+pokemonInstance.setAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png');
+pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
+//append pokemon into our image container ^
+imgContainer.append(pokemonInstance);
+
+//create and append buttons
+//button that makes pokemon appear.
+const appearButton = document.createElement('button');
+appearButton.className = 'appear-button';
+appearButton.setAttribute('id', 'appear-Button');
+appearButton.innerText = 'Click Me';
+appearButton.addEventListener('click', () => {
+  pokemonInstance.setAttribute('style', 'filter: brightness(100%)')
+});
+
 
 // const googleTarget = document.querySelector('.om7nvf');
-const button = document.querySelector('#button');
-const pokemon = document.querySelector('#pokemon');
-button.addEventListener('click', ()   => {
-  pokemon.setAttribute('style', 'filter: brightness(100%)')
-});
+
+// const pokemon = document.querySelector('#pokemon');
+
+
+//append all sub items to our game Container
+gameContainer.append(imgContainer, appearButton);
+
+//*******END GAME CREATION
+//insert our game container into the DOM.
+const body = document.querySelector('body');
+body.append(gameContainer);
 
 /*
 TO-DO
 
 1. [*]finish API calling
 2. [x] get a basic CSS for our images
-3. build a set up to load into our DOM (the elements)
+3. [*]build a set up to load into our DOM (the elements)
 4. [*] Extension loaded up and working. (proper targeting of google page for DOM manip)
 5. guessing functionality (input field with submit)
 6. WIN/LOSS display

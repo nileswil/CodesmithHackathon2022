@@ -1,4 +1,4 @@
-.imgContainer {
+.img-container {
   height: 400px;
   width:600px;
   border: 1px solid black;
@@ -6,11 +6,11 @@
   background-size: cover;
 }
 
-/* .background {
+.appear-button {
   
-} */
+}
 
-.pokemon {
+.pokemon-instance {
   position: relative;
   transition: filter 3s;
   height: 200px;
