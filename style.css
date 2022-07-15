@@ -1,3 +1,19 @@
+.imgContainer {
+  height: 400px;
+  width:600px;
+  border: 1px solid black;
+  background: url('https://orig00.deviantart.net/0945/f/2011/237/0/8/who__s_that_pokemon__by_amitlu89-d47rmjf.png') no-repeat;
+  background-size: cover;
+}
+
+/* .background {
+  
+} */
+
 .pokemon {
-  transition: filter 2s;
+  position: relative;
+  transition: filter 3s;
+  height: 200px;
+  top: 65px;
+  left: 65px;
 }
