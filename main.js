@@ -32,17 +32,17 @@ fetch(requestForAllPokemon).then((data) => data.json())
 
 
 //*******GAME CREATION
-//create game container to insert sub items later.
+//GAME CONTAINER
 const gameContainer = document.createElement('div');
 gameContainer.className = 'game-container';
 gameContainer.setAttribute('id', 'game-Container');
 
-//create image container
+//IMAGE CONTAINER
 const imgContainer = document.createElement('div');
 imgContainer.className = 'img-container';
 imgContainer.setAttribute('id', 'img-Container');
 
-//create a pokemon
+//POKEMON IMAGE
 const pokemonInstance = document.createElement('img');
 pokemonInstance.className = 'pokemon-instance';
 pokemonInstance.setAttribute('id', 'pokemon-Instance');
@@ -51,7 +51,7 @@ pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
 //append pokemon into our image container ^
 imgContainer.append(pokemonInstance);
 
-//create and append buttons
+//GAME BUTTONS
 //button that makes pokemon appear.
 const appearButton = document.createElement('button');
 appearButton.className = 'appear-button';
@@ -62,18 +62,25 @@ appearButton.addEventListener('click', () => {
 });
 
 
-// const googleTarget = document.querySelector('.om7nvf');
-
-// const pokemon = document.querySelector('#pokemon');
-
-
 //append all sub items to our game Container
 gameContainer.append(imgContainer, appearButton);
 
 //*******END GAME CREATION
 //insert our game container into the DOM.
+//FAKE MOCK UP
 const body = document.querySelector('body');
 body.append(gameContainer);
+
+//REAL EXTENSION INSERTION: select main, save info. remove info from DOM. insert our Game;
+// const googleTarget = document.querySelector('#main');
+// const saved = googleTarget.innerHTML;
+// googleTarget.innerText = '';
+// googleTarget.append(gameContainer);
+//TO BRING BACK GOOGLE STUFF
+//googleTarget.innerHTML = saved;
+
+
+
 
 /*
 TO-DO
@@ -91,4 +98,5 @@ BONUS
 0. Buttons as answers
 1. score counter
 2. make css nicer, animations etc.
+3. toggle game on and off from popup? ie. click on a pokeball????
 */
