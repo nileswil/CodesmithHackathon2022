@@ -30,6 +30,7 @@ fetch(requestForAllPokemon).then((data) => data.json())
 
 //DOM MANIP
 
+const fakeArray = ['charizard', 'pikachu', 'bulbasaur', 'mew']
 
 //*******GAME CREATION
 //GAME CONTAINER
@@ -52,18 +53,40 @@ pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
 imgContainer.append(pokemonInstance);
 
 //GAME BUTTONS
-//button that makes pokemon appear.
-const appearButton = document.createElement('button');
-appearButton.className = 'appear-button';
-appearButton.setAttribute('id', 'appear-Button');
-appearButton.innerText = 'Click Me';
-appearButton.addEventListener('click', () => {
-  pokemonInstance.setAttribute('style', 'filter: brightness(100%)')
-});
+//Create BUtton container
+const buttonContainer = document.createElement('div');
+buttonContainer.className = 'button-container';
 
+
+fakeArray.forEach(pokemon => buttonGenerator(pokemon));
+//button that makes pokemon appear.
+function buttonGenerator(name){
+  const answerButton = document.createElement("button");
+  answerButton.className = "answer-button";
+  answerButton.innerText = name;
+  answerButton.addEventListener("click", () => {
+    pokemonInstance.setAttribute("style", "filter: brightness(100%)");
+  });
+//assign ID for correct/wrong answers (change 'pikachu' to data.name once inside fetch.then)
+if (name.toLowerCase() === "pikachu".toLowerCase()) {
+  answerButton.setAttribute("id", "true-Button");
+  answerButton.addEventListener("click", () => {
+    console.log("right answer");
+  });
+} else {
+  answerButton.setAttribute("id", "false-Button");
+  answerButton.addEventListener("click", () => {
+   console.log("wrong answer");
+  });
+
+}
+//append these buttons to my button container
+buttonContainer.append(answerButton);
+}
 
 //append all sub items to our game Container
-gameContainer.append(imgContainer, appearButton);
+imgContainer.append(buttonContainer);
+gameContainer.append(imgContainer);
 
 //*******END GAME CREATION
 //insert our game container into the DOM.

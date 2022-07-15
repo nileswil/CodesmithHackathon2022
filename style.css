@@ -1,19 +1,45 @@
 .img-container {
-  height: 400px;
-  width:600px;
+  height: 500px;
+  width: 600px;
   border: 1px solid black;
   background: url('https://orig00.deviantart.net/0945/f/2011/237/0/8/who__s_that_pokemon__by_amitlu89-d47rmjf.png') no-repeat;
   background-size: cover;
 }
 
 .appear-button {
-  
+
 }
 
 .pokemon-instance {
   position: relative;
   transition: filter 3s;
   height: 200px;
-  top: 65px;
-  left: 65px;
+  top: 80px;
+  left: 80px;
 }
+
+
+.button-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  width: 300px;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  top: 190px;
+}
+
+.answer-button {
+  width: 150px;
+  border: 2px solid #3E5D9C;
+  border-radius: 10px;
+  padding: 4px;
+  color: #3E5D9C;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 2px 2px 2px #3E5D9C;
+  justify-self: center;
+}
+
