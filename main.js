@@ -23,76 +23,142 @@ fetch(requestForAllPokemon).then((data) => data.json())
     pokemonAnswers.sort((a,b) => a.localeCompare(b)); // random answer choices of pokemon. I used a sort method but it's "random" since
     // the pokemon are shuffled by a sort algorithm but the user won't know it's sorted since they're checking for a name, not a number.
     console.log(pokemonAnswers)
-    console.log(data.name)
+    console.log(data.sprites.other['official-artwork'].front_default)
+
+
+    //****START COPYING
+
+    //*******GAME CREATION
+    //GAME CONTAINER
+    const gameContainer = document.createElement('div');
+    gameContainer.className = 'game-container';
+    gameContainer.setAttribute('id', 'game-Container');
+
+    //IMAGE CONTAINER
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'img-container';
+    imgContainer.setAttribute('id', 'img-Container');
+
+    //POKEMON IMAGE
+    const pokemonInstance = document.createElement('img');
+    pokemonInstance.className = 'pokemon-instance';
+    pokemonInstance.setAttribute('id', 'pokemon-Instance');
+    pokemonInstance.setAttribute('src', data.sprites.other['official-artwork'].front_default);
+    pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
+    //append pokemon into our image container ^
+    imgContainer.append(pokemonInstance);
+
+    //GAME BUTTONS
+    //Create BUtton container
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'button-container';
+
+    //instead of fake array, make it answer array
+    pokemonAnswers.forEach(pokemon => buttonGenerator(pokemon));
+    //button that makes pokemon appear.
+    function buttonGenerator(name){
+      const answerButton = document.createElement("button");
+      answerButton.className = "answer-button";
+      answerButton.innerText = name[0].toUpperCase() + name.slice(1);
+      answerButton.addEventListener("click", () => {
+        pokemonInstance.setAttribute("style", "filter: brightness(100%)");
+      });
+    //assign ID for correct/wrong answers (change 'pikachu' to data.name once inside fetch.then)
+    if (name.toLowerCase() === data.name.toLowerCase()) {
+      answerButton.setAttribute("id", "true-Button");
+      answerButton.addEventListener("click", () => {
+        console.log("right answer");
+      });
+    } else {
+      answerButton.setAttribute("id", "false-Button");
+      answerButton.addEventListener("click", () => {
+       console.log("wrong answer");
+      });
+
+    }
+    //append these buttons to my button container
+    buttonContainer.append(answerButton);
+    }
+
+    //append all sub items to our game Container
+    imgContainer.append(buttonContainer);
+    gameContainer.append(imgContainer);
+
+    //*******END GAME CREATION
+    //insert our game container into the DOM.
+    //FAKE MOCK UP
+    const body = document.querySelector('body');
+    body.append(gameContainer);
+    //****END COPYING
 
   })
   .catch(error => console.log('Error'))
 
 //DOM MANIP
 
-const fakeArray = ['charizard', 'pikachu', 'bulbasaur', 'mew']
+// const fakeArray = ['charizard', 'pikachu', 'bulbasaur', 'mew']
 
-//*******GAME CREATION
-//GAME CONTAINER
-const gameContainer = document.createElement('div');
-gameContainer.className = 'game-container';
-gameContainer.setAttribute('id', 'game-Container');
+// //*******GAME CREATION
+// //GAME CONTAINER
+// const gameContainer = document.createElement('div');
+// gameContainer.className = 'game-container';
+// gameContainer.setAttribute('id', 'game-Container');
 
-//IMAGE CONTAINER
-const imgContainer = document.createElement('div');
-imgContainer.className = 'img-container';
-imgContainer.setAttribute('id', 'img-Container');
+// //IMAGE CONTAINER
+// const imgContainer = document.createElement('div');
+// imgContainer.className = 'img-container';
+// imgContainer.setAttribute('id', 'img-Container');
 
-//POKEMON IMAGE
-const pokemonInstance = document.createElement('img');
-pokemonInstance.className = 'pokemon-instance';
-pokemonInstance.setAttribute('id', 'pokemon-Instance');
-pokemonInstance.setAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png');
-pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
-//append pokemon into our image container ^
-imgContainer.append(pokemonInstance);
+// //POKEMON IMAGE
+// const pokemonInstance = document.createElement('img');
+// pokemonInstance.className = 'pokemon-instance';
+// pokemonInstance.setAttribute('id', 'pokemon-Instance');
+// pokemonInstance.setAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png');
+// pokemonInstance.setAttribute('style', 'filter: brightness(0%)');
+// //append pokemon into our image container ^
+// imgContainer.append(pokemonInstance);
 
-//GAME BUTTONS
-//Create BUtton container
-const buttonContainer = document.createElement('div');
-buttonContainer.className = 'button-container';
+// //GAME BUTTONS
+// //Create BUtton container
+// const buttonContainer = document.createElement('div');
+// buttonContainer.className = 'button-container';
 
 
-fakeArray.forEach(pokemon => buttonGenerator(pokemon));
-//button that makes pokemon appear.
-function buttonGenerator(name){
-  const answerButton = document.createElement("button");
-  answerButton.className = "answer-button";
-  answerButton.innerText = name;
-  answerButton.addEventListener("click", () => {
-    pokemonInstance.setAttribute("style", "filter: brightness(100%)");
-  });
-//assign ID for correct/wrong answers (change 'pikachu' to data.name once inside fetch.then)
-if (name.toLowerCase() === "pikachu".toLowerCase()) {
-  answerButton.setAttribute("id", "true-Button");
-  answerButton.addEventListener("click", () => {
-    console.log("right answer");
-  });
-} else {
-  answerButton.setAttribute("id", "false-Button");
-  answerButton.addEventListener("click", () => {
-   console.log("wrong answer");
-  });
+// fakeArray.forEach(pokemon => buttonGenerator(pokemon));
+// //button that makes pokemon appear.
+// function buttonGenerator(name){
+//   const answerButton = document.createElement("button");
+//   answerButton.className = "answer-button";
+//   answerButton.innerText = name;
+//   answerButton.addEventListener("click", () => {
+//     pokemonInstance.setAttribute("style", "filter: brightness(100%)");
+//   });
+// //assign ID for correct/wrong answers (change 'pikachu' to data.name once inside fetch.then)
+// if (name.toLowerCase() === "pikachu".toLowerCase()) {
+//   answerButton.setAttribute("id", "true-Button");
+//   answerButton.addEventListener("click", () => {
+//     console.log("right answer");
+//   });
+// } else {
+//   answerButton.setAttribute("id", "false-Button");
+//   answerButton.addEventListener("click", () => {
+//    console.log("wrong answer");
+//   });
 
-}
-//append these buttons to my button container
-buttonContainer.append(answerButton);
-}
+// }
+// //append these buttons to my button container
+// buttonContainer.append(answerButton);
+// }
 
-//append all sub items to our game Container
-imgContainer.append(buttonContainer);
-gameContainer.append(imgContainer);
+// //append all sub items to our game Container
+// imgContainer.append(buttonContainer);
+// gameContainer.append(imgContainer);
 
-//*******END GAME CREATION
-//insert our game container into the DOM.
-//FAKE MOCK UP
-const body = document.querySelector('body');
-body.append(gameContainer);
+// //*******END GAME CREATION
+// //insert our game container into the DOM.
+// //FAKE MOCK UP
+// const body = document.querySelector('body');
+// body.append(gameContainer);
 
 //REAL EXTENSION INSERTION: select main, save info. remove info from DOM. insert our Game;
 // const googleTarget = document.querySelector('#main');
