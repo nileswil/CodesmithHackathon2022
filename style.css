@@ -10,6 +10,14 @@
 
 }
 
+.teamRocket {
+
+}
+
+.teamAsh {
+
+}
+
 .pokemon-instance {
   position: relative;
   transition: filter 3s;
@@ -17,7 +25,6 @@
   top: 60px;
   left: 60px;
 }
-
 
 .button-container {
   display: grid;
