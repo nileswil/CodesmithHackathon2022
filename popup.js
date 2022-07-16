@@ -1,3 +1,20 @@
+console.log('in the popup!')
+
+//UPDATE DOM
+const winCounter = document.querySelector('#win-Counter');
+const lossCounter = document.querySelector('#loss-Counter');
+
+chrome.storage.local.get(['win'], function (result) {
+  console.log('Win Value currently is ' + result.win);
+  winCounter.textContent = result.win;
+});
+
+chrome.storage.local.get(['loss'], function (result) {
+  console.log('Loss Value currently is ' + result.loss);
+  lossCounter.textContent = result.loss;
+});
+
+
 // var enabled = false; //disabled by default
 // const pokeball = document.querySelector('#pokeball')
 

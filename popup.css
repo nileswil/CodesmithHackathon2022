@@ -1,0 +1,18 @@
+span {
+  font-size: 20px;
+  font-family: "Comic Sans MS",
+    "Comic Sans",
+    cursive;
+}
+
+.score {
+  
+}
+
+.win-counter {
+  color: green;
+}
+
+.loss-counter {
+  color: red;
+}

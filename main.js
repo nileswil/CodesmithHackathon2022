@@ -1,5 +1,7 @@
 
 const audio = new Audio("https://www.myinstants.com/media/sounds/whos-that-pokemon_.mp3");
+let winKeeper = 0;
+let lossKeeper = 0;
 
 function runGame () {
   // create a fetch request to grab ALL of the pokemon and store data in an array;
@@ -229,6 +231,10 @@ function runGame () {
         if (name.toLowerCase() === data.name.toLowerCase()) {
           answerButton.setAttribute("id", "true-Button");
           answerButton.addEventListener("click", () => {
+            //increment score, update storage API
+            winKeeper += 1;
+            updateWin(winKeeper)
+
             const teamAsh = document.createElement("img");
             teamAsh.setAttribute(
               "src",
@@ -245,6 +251,10 @@ function runGame () {
         } else {
           answerButton.setAttribute("id", "false-Button");
           answerButton.addEventListener("click", () => {
+            //decrement score, update storage API
+            lossKeeper += 1;
+            updateLoss(lossKeeper)
+
             const teamRocket = document.createElement("img");
             teamRocket.setAttribute(
               "src",
@@ -313,14 +323,22 @@ function runGame () {
 }
 
 runGame();
+updateWin(0);
+updateLoss(0);
 
-function updateScore (score) {
-  chrome.storage.local.set({ 'score': score }, function () {
-    console.log('Value is set to ' + `${score}`);
+function updateWin (score) {
+  chrome.storage.local.set({ win: score }, function () {
+    console.log('Win is set to ' + `${score}`);
   });
 }
 
-updateScore(4);
+function updateLoss(score) {
+  chrome.storage.local.set({ loss: score }, function () {
+    console.log('Loss is set to ' + `${score}`);
+  });
+}
+
+// updateScore(4);
 
 // chrome.storage.local.get('enabled', data => {
 //   if (data.enabled) {
