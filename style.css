@@ -14,7 +14,7 @@
 .teamRocket {
   height: 400px;
   position: relative;
-  top: -450px;
+  top: -470px;
   left: 100px;
   margin: auto;
   border: 5px solid #3E5D9C;
@@ -31,8 +31,10 @@
 }
 
 .game-container {
+  position: relative;
   width: 600px;
   margin: auto;
+  /* border: 1px solid black; */
 }
 
 .pokemon-instance {
@@ -70,6 +72,7 @@
 }
 
 .play-again-button {
-  position: relative;
-  top: -450px;
+  position: absolute;
+  top: 460px;
+  left: 200px;
 }
