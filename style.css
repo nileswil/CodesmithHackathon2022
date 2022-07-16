@@ -11,11 +11,24 @@
 }
 
 .teamRocket {
-
+  height: 400px;
+  position: relative;
+  top: -450px;
+  left: 100px;
+  margin: auto;
 }
 
 .teamAsh {
+  position: relative;
+  top: -450px;
+  left: -27px;
+  margin: auto;
+}
 
+.game-container {
+
+  width: 600px;
+  margin: auto;
 }
 
 .pokemon-instance {
@@ -37,7 +50,7 @@
   top: 140px;
 }
 
-.answer-button {
+.answer-button, .play-again-button {
   width: 150px;
   border: 2px solid #3E5D9C;
   border-radius: 10px;
@@ -51,3 +64,6 @@
   background-color: #DAE8E8;
 }
 
+.play-again-button {
+
+}
