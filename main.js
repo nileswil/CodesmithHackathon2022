@@ -314,6 +314,24 @@ function runGame () {
 
 runGame();
 
+function updateScore (score) {
+  chrome.storage.local.set({ 'score': score }, function () {
+    console.log('Value is set to ' + `${score}`);
+  });
+}
+
+updateScore(4);
+
+// chrome.storage.local.get('enabled', data => {
+//   if (data.enabled) {
+//     // resetGame();
+//     runGame();
+//   } else {
+//     // runGame()
+//     //it is disabled
+//   }
+// });
+
 /*
 TO-DO
 

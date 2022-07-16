@@ -3,6 +3,9 @@
   "name": "Pokemon",
   "version": "1.0",
   "description": "It is 10/10 USEFUL to stay relaxed, especially when your Googling!",
+  "permissions": [
+    "storage"
+  ],
   "icons": {
     "16": "./pokeball.png",
     "48": "./pokeball.png",
@@ -20,6 +23,9 @@
   "options_ui": {
     "page": "./index.html",
     "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "web_accessible_resources": [
     {

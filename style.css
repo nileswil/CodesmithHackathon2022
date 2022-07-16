@@ -1,7 +1,8 @@
 .img-container {
+  border: 5px solid #3E5D9C;
+  border-radius: 10px;
   height: 500px;
   width: 600px;
-  border: 1px solid black;
   background: url('https://orig00.deviantart.net/0945/f/2011/237/0/8/who__s_that_pokemon__by_amitlu89-d47rmjf.png') no-repeat;
   background-size: cover;
 }
@@ -16,6 +17,8 @@
   top: -450px;
   left: 100px;
   margin: auto;
+  border: 5px solid #3E5D9C;
+  border-radius: 10px;
 }
 
 .teamAsh {
@@ -23,10 +26,11 @@
   top: -450px;
   left: -27px;
   margin: auto;
+  border: 5px solid #3E5D9C;
+  border-radius: 10px;
 }
 
 .game-container {
-
   width: 600px;
   margin: auto;
 }
@@ -52,7 +56,7 @@
 
 .answer-button, .play-again-button {
   width: 150px;
-  border: 2px solid #3E5D9C;
+  border: 3px solid #3E5D9C;
   border-radius: 10px;
   padding: 4px;
   color: #3E5D9C;
