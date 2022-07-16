@@ -65,5 +65,6 @@
 }
 
 .play-again-button {
-
+  position: relative;
+  top: -450px;
 }

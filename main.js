@@ -233,8 +233,10 @@ function runGame(){
               "https://raw.githubusercontent.com/nileswil/CodesmithHackathon2022/main/brockmistyash.png"
             );
             teamAsh.className = "teamAsh";
-            gameContainer.append(teamAsh);
-            createPlayAgain();
+            setTimeout(() => {
+              gameContainer.append(teamAsh);
+              createPlayAgain();
+            }, 3000);
           });
         } else {
           answerButton.setAttribute("id", "true-Button");
@@ -245,8 +247,10 @@ function runGame(){
               "https://raw.githubusercontent.com/nileswil/CodesmithHackathon2022/main/teamrocket.png"
             );
             teamRocket.className = "teamRocket";
-            gameContainer.append(teamRocket);
-            createPlayAgain();
+            setTimeout(() => {
+              gameContainer.append(teamRocket);
+              createPlayAgain();
+            }, 3000);
           });
         }
         //append these buttons to my button container
