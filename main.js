@@ -99,4 +99,5 @@ BONUS
 1. score counter
 2. make css nicer, animations etc.
 3. toggle game on and off from popup? ie. click on a pokeball????
+4. play whos that pokemon!
 */
