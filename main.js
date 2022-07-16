@@ -1,5 +1,7 @@
 
-function runGame(){
+const audio = new Audio("https://www.myinstants.com/media/sounds/whos-that-pokemon_.mp3");
+
+function runGame () {
   // create a fetch request to grab ALL of the pokemon and store data in an array;
   const listOfFirst150Pokemon = [
     "bulbasaur",
@@ -234,20 +236,24 @@ function runGame(){
             );
             teamAsh.className = "teamAsh";
             setTimeout(() => {
+              const answerButtons = gameContainer.querySelectorAll(".answer-button");
+              answerButtons.forEach((button) => button.remove());
               gameContainer.append(teamAsh);
               createPlayAgain();
             }, 3000);
           });
         } else {
-          answerButton.setAttribute("id", "true-Button");
+          answerButton.setAttribute("id", "false-Button");
           answerButton.addEventListener("click", () => {
             const teamRocket = document.createElement("img");
             teamRocket.setAttribute(
               "src",
-              "https://raw.githubusercontent.com/nileswil/CodesmithHackathon2022/main/teamrocket.png"
+              "https://raw.githubusercontent.com/nileswil/CodesmithHackathon2022/35b5a534d3b3c5fafcbff66866549cb1a85db7bc/teamrocket.png"
             );
             teamRocket.className = "teamRocket";
             setTimeout(() => {
+              const answerButtons = gameContainer.querySelectorAll(".answer-button");
+              answerButtons.forEach((button) => button.remove());
               gameContainer.append(teamRocket);
               createPlayAgain();
             }, 3000);
@@ -262,17 +268,20 @@ function runGame(){
       gameContainer.append(imgContainer);
 
       //REMOVE ANSWER BUTTONS FUNCTION
-      function removeAnswerButtons () {
-        const answerButtons = gameContainer.querySelectorAll(".answer-button");
-        answerButtons.forEach(button => button.remove());
+      function removeAnswerButtons() {
+        const answerButtons = gameContainer.querySelectorAll("#false-Button");
+        answerButtons.forEach((button) => {
+          // button.remove()
+          button.setAttribute('style', 'opacity: 0')
+        });
       }
 
       //createPlay again button
-      function createPlayAgain () {
-        const playAgainButton = document.createElement('button');
-        playAgainButton.innerText = 'Play Again';
-        playAgainButton.className = 'play-again-button';
-        playAgainButton.addEventListener('click', resetGame)
+      function createPlayAgain() {
+        const playAgainButton = document.createElement("button");
+        playAgainButton.innerText = "Play Again";
+        playAgainButton.className = "play-again-button";
+        playAgainButton.addEventListener("click", resetGame);
         gameContainer.append(playAgainButton);
       }
 
@@ -281,6 +290,7 @@ function runGame(){
         // gameContainer.remove();
         googleTarget2.innerText = "";
         runGame();
+        audio.play();
       }
 
       //*******END GAME CREATION
@@ -303,7 +313,6 @@ function runGame(){
 }
 
 runGame();
-
 
 /*
 TO-DO

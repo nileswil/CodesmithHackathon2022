@@ -62,6 +62,7 @@
   box-shadow: 2px 2px 2px #3E5D9C;
   justify-self: center;
   background-color: #DAE8E8;
+  transition: opacity 3s;
 }
 
 .play-again-button {
